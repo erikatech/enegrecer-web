@@ -23,6 +23,7 @@ export class NovaDenunciaContainer extends Component {
   componentDidMount() {
     Tela.iniciaCamposMaterialize();
   }
+  
   onPressSaveButton() {
     const mensagemError = validaDenuncia(this.state.vitima);
     if (mensagemError === undefined) {
