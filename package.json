@@ -11,9 +11,9 @@
     "node-sass-chokidar": "^0.0.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.2",
-    "react-dom": "^15.6.2",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.6.2",
     "react-input-mask": "^1.1.0",
     "react-location-picker": "^1.0.1",
     "react-redux": "^5.0.6",
@@ -23,6 +23,7 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
+    "redux-form": "^7.2.3",
     "redux-saga": "^0.15.6"
   },
   "scripts": {
@@ -45,8 +46,8 @@
     "enzyme-to-json": "1.5.1",
     "eslint": "^4.1.1",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "eslint-watch": "^3.1.2",
     "jest-cli": "^21.2.1",
