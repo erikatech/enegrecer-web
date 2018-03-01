@@ -1,5 +1,4 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { shallow, mount } from 'enzyme';
 import { NovaDenunciaContainer } from './NovaDenunciaContainer';
 
@@ -12,9 +11,11 @@ describe('NovaDenunciaContainer', () => {
   });
 
   it('renderiza sem erros o formulário de denúncias dentro do container', () => {
-    const wrapper = mount(<MuiThemeProvider>
-      <NovaDenunciaContainer currentUserUID="" criarDenunciaRequisicao={() => { }} />
-    </MuiThemeProvider>);
+    const wrapper = mount(<NovaDenunciaContainer
+      currentUserUID=""
+      criarDenunciaRequisicao={() => { }}
+    />
+    );
     expect(wrapper.find('#form-nova-denuncia').length).toBe(1);
   });
 
@@ -58,7 +59,7 @@ describe('NovaDenunciaContainer', () => {
           dataNascimento: '1900-01-02',
           endereco: 'Av. teste',
           estado: 'AM',
-          telefone: '31999999999',
+          telefone: '(81) 99722-7867',
           email: 't@t.com',
           naturalidade: 'naturalidade',
           caracteristicasDaVitima: 'caracteristicasDaVitima',
