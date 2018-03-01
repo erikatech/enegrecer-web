@@ -1,4 +1,4 @@
-import { focoNoCampo, desfocaCampo } from '../../FocusUtil'
+import { focoNoCampo, desfocaCampo } from './FocusUtil'
 
 
 function temNumero(campo) {
