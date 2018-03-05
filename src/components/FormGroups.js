@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import InputMask from 'react-input-mask';
+import { Field } from 'redux-form';
 
 
 export function TelefoneFormGroup({ handleChange, ...props }) {
@@ -21,16 +22,23 @@ export function TelefoneFormGroup({ handleChange, ...props }) {
   )
 }
 
-
 export function RadioGrupoBotoes(props) {
+
   return (
     <div className={props.classes}>
       { props.botoes.map(
         botaoRadio =>
-          (<p key={botaoRadio.id}>
-            <input name={props.id} type="radio" id={botaoRadio.id} />
-            <label htmlFor={botaoRadio.id}>{botaoRadio.valor}</label>
-          </p>
+          (<div key={botaoRadio.id}>
+            <Field name={props.id} component={(fieldProps) => {
+              const { input, meta: { touched, error } } = fieldProps;
+              return (
+                <div>
+                    <input name={props.id} type="radio" {...input} value={botaoRadio.valor} id={botaoRadio.id} />
+                    <label htmlFor={botaoRadio.id}>{botaoRadio.valor}</label>
+                </div>
+              )
+            }}/>
+          </div>
           )
       )
       }
@@ -72,24 +80,21 @@ CheckBox.defaultProps = {
 
 export function Combobox(props) {
   return (
-    <div className={props.divClasse}>
-      <select id={props.id} onChange={props.onChange} >
-        <option value="" >{props.valorPadrao}</option>
-        {
-          props.itens.map(
-            val => <option key={val} value={val}> {val} </option>
-          )
-        }
-      </select>
-      <label htmlFor={props.id}>{props.label}</label>
+    <div className={props.className}>
+      <label>{props.label}</label>
+      <Field id={props.id} name={props.id} component="select">
+          <option value="">{props.valorPadrao}</option>
+          {props.itens.map(val => 
+            <option key={val} value={val}> {val}</option>)
+          }
+      </Field>
     </div>
-  );
+  )
 }
 
 Combobox.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
-  onChange: PropTypes.func,
   divClasse: PropTypes.string,
   itens: PropTypes.arrayOf(PropTypes.string),
   valorPadrao: PropTypes.string
@@ -98,7 +103,6 @@ Combobox.propTypes = {
 Combobox.defaultProps = {
   id: '',
   label: '',
-  onChange: () => {},
   divClasse: '',
   itens: [],
   valorPadrao: ''
@@ -106,42 +110,41 @@ Combobox.defaultProps = {
 
 
 export function CampoTexto(props) {
+  const { name, id, maxLength, type, className, onChange, label, divClasse } = props;
   return (
-    <div className={props.divClasse}>
-      <input
-        id={props.id}
-        type={props.type}
-        onChange={props.onChange}
-        className={props.inputClasse}
-        maxLength={props.maxLen}
-        placeholder={props.placeholder ? props.placeholder : undefined}
-      />
-      <label className="active" htmlFor={props.id}>{props.label}</label>
-    </div>
+    <Field name={id} component={(fieldProps) => {
+        const { input, meta: { touched, error } } = fieldProps;
+        return (
+          <div className={divClasse}>
+              <label className="active" htmlFor={id}>{label}</label>
+              <input name={name} id={id} type={type} {...input} />
+          </div>
+        )
+      }}
+    />
   );
 }
 
 CampoTexto.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string,
-  maxLen: PropTypes.number,
+  maxLength: PropTypes.number,
   placeholder: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
   divClasse: PropTypes.string,
-  inputClasse: PropTypes.string
-
+  className: PropTypes.string
 };
 
 CampoTexto.defaultProps = {
   id: '',
   type: '',
-  maxLen: '',
+  maxLength: 255,
   placeholder: '',
   label: '',
   onChange: () => {},
   divClasse: '',
-  inputClasse: ''
+  className: ''
 };
 
 const formGroupPropTypes = {

@@ -23,7 +23,6 @@ let ContactForm = props => {
     )
   }
   
-  
   let DenunciaContainer = reduxForm({
     form: 'denuncia'
   })(ContactForm)

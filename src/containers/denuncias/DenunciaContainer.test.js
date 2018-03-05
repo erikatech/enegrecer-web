@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import DenunciaContainer from './DenunciaContainer';
-
-
 import { reducer as formReducer } from 'redux-form'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
@@ -34,7 +32,6 @@ describe('DenunciaContainer', () => {
 
     it('com dados válidos não deve acontecer erros de validação', () => {
         subject.find('form').simulate('submit');
-        console.log(subject.find('form'));
         expect(envia).toHaveBeenCalled();
     });
 }) 
