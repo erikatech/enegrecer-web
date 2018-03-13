@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import './denuncia.css';
 
+const required = value => value ? undefined : 'Required';
+
 const SimpleForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
@@ -15,6 +17,7 @@ const SimpleForm = (props) => {
             component="input"
             type="text"
             placeholder="First Name"
+            validate={required}
           />
         </div>
       </div>
@@ -92,7 +95,7 @@ const SimpleForm = (props) => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>
+        <button type="submit">
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
