@@ -1,3 +1,24 @@
+import React from 'react';
+import FormCode from '../../components/denuncias/FormCode';
+
+class NovaDenunciaContainer extends React.Component {
+  submit = (values) => {
+    alert("submitted");
+    console.log(values);
+  }
+  render() {
+    return (
+      <div className="container">
+        <h3 className="jumbotron">Redux Form Validation</h3>
+        <FormCode onSubmit={this.submit} />
+      </div>
+
+    )
+  }
+}
+
+export default NovaDenunciaContainer;
+/*
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
@@ -88,4 +109,4 @@ const reduxNovaDenuncia = connect(
   mapDispatchToProps,
 )(NovaDenunciaContainer);
 
-export default reduxNovaDenuncia;
+export default reduxNovaDenuncia; */
