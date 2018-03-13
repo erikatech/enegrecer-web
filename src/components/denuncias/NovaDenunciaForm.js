@@ -1,70 +1,108 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import NovaVitimaForm from './vitima/NovaVitimaForm';
-import NovaTestemunhaForm from './testemunha/NovaTestemunhaForm';
-import DetalhamentoDenuncia from './DetalhamentoDenuncia';
+import { Field, reduxForm } from 'redux-form';
 import './denuncia.css';
 
-export default class NovaDenunciaForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      detalhamento: '',
-      dataOcorrencia: '',
-      horaOcorrencia: '',
-      idCategoria: '',
-      endereco: '',
-      estado: '',
-      vitima: {},
-      testemunha: {}
-    }
-  }
-
-  handleChange(dados) {
-    this.setState({
-      ...dados,
-    }, () => {
-      this.props.alterarDenunciaForm(this.state)
-    });
-  }
-
-  handleSubmit(event) {
-    if (event) {
-      event.preventDefault();
-    }
-    this.props.salvarDenuncia();
-  }
-
-  render() {
-    return (
-      <form
-        name="form-denuncia"
-        id="form-nova-denuncia"
-        onSubmit={event => this.handleSubmit(event)}
-      >
-        <DetalhamentoDenuncia handleChange={this.handleChange} />
-
-        <NovaVitimaForm handleChange={this.handleChange} />
-
-        <NovaTestemunhaForm handleChange={this.handleChange} />
-
-        <br />
-        <button className="btn waves-effect waves-light" type="submit" name="action">
-            Enviar Denúncia
+const SimpleForm = (props) => {
+  const { handleSubmit, pristine, reset, submitting } = props
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>First Name</label>
+        <div>
+          <Field
+            name="firstName"
+            component="input"
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <div>
+          <Field
+            name="lastName"
+            component="input"
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Email</label>
+        <div>
+          <Field
+            name="email"
+            component="input"
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Sex</label>
+        <div>
+          <label>
+            <Field
+              name="sex"
+              component="input"
+              type="radio"
+              value="male"
+            />{' '}
+            Male
+          </label>
+          <label>
+            <Field
+              name="sex"
+              component="input"
+              type="radio"
+              value="female"
+            />{' '}
+            Female
+          </label>
+        </div>
+      </div>
+      <div>
+        <label>Favorite Color</label>
+        <div>
+          <Field name="favoriteColor" component="select">
+            <option />
+            <option value="ff0000">Red</option>
+            <option value="00ff00">Green</option>
+            <option value="0000ff">Blue</option>
+          </Field>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="employed">Employed</label>
+        <div>
+          <Field
+            name="employed"
+            id="employed"
+            component="input"
+            type="checkbox"
+          />
+        </div>
+      </div>
+      <div>
+        <label>Notes</label>
+        <div>
+          <Field name="notes" component="textarea" />
+        </div>
+      </div>
+      <div>
+        <button type="submit" disabled={pristine || submitting}>
+          Submit
         </button>
-      </form>);
-  }
+        <button type="button" disabled={pristine || submitting} onClick={reset}>
+          Clear Values
+        </button>
+      </div>
+    </form>
+  )
 }
 
-NovaDenunciaForm.defaultProps = {
-  alterarDenunciaForm: () => {}
-};
-
-NovaDenunciaForm.propTypes = {
-  salvarDenuncia: PropTypes.func.isRequired,
-  alterarDenunciaForm: PropTypes.func
-};
+export default reduxForm({
+  form: 'simple' // a unique identifier for this form
+})(SimpleForm)

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
 import { cortarPalavra } from '../../utils/helpers';
 import ComboEstado from './../comum/comboboxEstado';
 import CampoTexto from './../comum/campoTexto';
@@ -7,6 +8,7 @@ import BotoesRadio from './../comum/botoesRadio';
 import Data from './../comum/data';
 import * as ConstantesCSS from './ConstantesCss';
 import * as Tela from '../../utils/materializeCSS';
+
 
 export default class DetalhamentoDenuncia extends Component {
   constructor(props) {

@@ -9,6 +9,7 @@ import {
 import NovaDenunciaForm from '../../components/denuncias/NovaDenunciaForm';
 import { validaDenuncia } from './validaDenuncia';
 import * as Tela from '../../utils/materializeCSS'
+import Form from '../../components/denuncias/SimpleForm';
 
 export class NovaDenunciaContainer extends Component {
   constructor(props) {
@@ -54,10 +55,7 @@ export class NovaDenunciaContainer extends Component {
       return <Redirect to="/painel/proximosPassos" />;
     }
     return (
-      <NovaDenunciaForm
-        salvarDenuncia={this.onPressSaveButton}
-        alterarDenunciaForm={this.adicionarDenunciaNoForm}
-      />
+      <Form />
     );
   }
 }
