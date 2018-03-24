@@ -5,6 +5,7 @@ import NovaTestemunhaForm from './testemunha/NovaTestemunhaForm';
 import DetalhamentoDenuncia from './DetalhamentoDenuncia';
 import Denunciante from './denunciante/DenuncianteForm';
 import './denuncia.css';
+import AgressorForm from './agressor/AgressorForm';
 
 export default class NovaDenunciaForm extends Component {
   constructor(props) {
@@ -47,12 +48,14 @@ export default class NovaDenunciaForm extends Component {
         id="form-nova-denuncia"
         onSubmit={event => this.handleSubmit(event)}
       >
-        <Denunciante  handleChange={this.handleChange} />
+        <Denunciante handleChange={this.handleChange} />
         <DetalhamentoDenuncia handleChange={this.handleChange} />
 
         <NovaVitimaForm handleChange={this.handleChange} />
 
         <NovaTestemunhaForm handleChange={this.handleChange} />
+
+        <AgressorForm />
 
         <br />
         <button className="btn waves-effect waves-light" type="submit" name="action">
