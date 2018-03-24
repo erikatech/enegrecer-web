@@ -57,89 +57,57 @@ export default class NovaVitimaForm extends Component {
   render() {
     return (
       <div>
-        <h3>Informacões da Vítima</h3>
-        <br />
-
-        <CheckBox id={'conhecoAVitima'} label={'Conheço a Vítima'} onClick={e => this.handleChange(e.target.checked, 'conhecoAVitima')} />
-        <CheckBox id={'souAVitima'} label={'Sou a Vítima'} onClick={e => this.handleChange(e.target.checked, 'souAVitima')} />
-
-        <div className="row">
-          <Nome id={'nome-vitima'} onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'nome')} />
-        </div>
+        <h2>Me conte um pouco sobre a vítima.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl mi, egestas ac ipsum sit amet,
+          blandit posuere metus. Donec imperdiet ut mi sed posuere. Pellentesque et varius sapien.
+        </p>
+        <CheckBox id={'vitima'} label={'Marque se você for a vítima'} onClick={e => this.handleChange(e.target.checked, 'conhecoAVitima')} />
 
         <div className="row">
-          <Genero
-            id={'vitima-genero'}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s4`}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 15), 'genero')}
+          <Nome
+            id={'nome-vitima'}
+            onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'nome')}
+            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
           />
-
-          <ComboboxRaca
-            id={'raca'}
-            classes={`${ConstantesCSS.CLASSES_DIV_INPUT} col s4`}
-            somenteRacasVitima
-            onChange={this.handleChange}
-          />
-
           <Data
-            id={'dataNascimento'}
+            id={'data-nascimento-vitima'}
             label={'Data de Nascimento'}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s4`}
+            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
             onChange={e => this.handleChange(e.target.value, 'dataNascimento')}
-
           />
 
         </div>
 
         <div className="row">
-          <CampoTexto
-            id={'endereco-vitima'}
-            label={'Endereço (máximo de 255 caracteres)'}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 255), 'endereco')}
-            maxLen={255}
-            inputClasse={ConstantesCSS.CLASSES_TEXTAREA}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s12`}
-            type={'text'}
-          />
-        </div>
-
-        <div className="row">
-          <CampoTexto
-            id={'naturalidade-vitima'}
-            label={'Naturalidade (máximo de 40 caracteres)'}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'naturalidade')}
-            maxLen={40}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
-            type={'text'}
-          />
-
-          <ComboEstado id={'estadoVitima'} handleChange={this.handleChange} classes={'col s6'} />
-        </div>
-
-        <div className="row">
-          <CampoTexto
-            id={'email-vitima'}
-            label={'Email'}
-            maxLen={40}
-            type={'text'}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'email')}
-          />
-
           <Telefone
-            id="telefone"
+            id="telefone-vitima"
             value={this.state.telefone}
             handleChange={this.handleChange}
             label={'Telefone'}
           />
-
+          <CampoTexto
+            id={'cidade-vitima'}
+            label={'Cidade'}
+            maxLen={40}
+            placeholder={''}
+            type={'text'}
+            divClasse={'input-field col s6'}
+          />
         </div>
 
         <div className="row">
-          <Caracteristica
-            id={'caracteristicasDaVitima'}
-            label={'* Por favor, descreva aqui as características da vítima (máximo de 255 caracteres)'}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 255), 'caracteristicasDaVitima')}
+          <Genero
+            id={'genero-vitima'}
+            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
+            onChange={e => this.handleChange(cortarPalavra(e.target.value, 15), 'genero')}
+          />
+
+          <ComboboxRaca
+            id={'raca-vitima'}
+            classes={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
+            somenteRacasVitima
+            onChange={this.handleChange}
           />
         </div>
       </div>);
