@@ -391,35 +391,55 @@ exports[`DenuncianteForm deve seguir a estrutura definida  1`] = `
         id="vitima-genero"
         onChange={[Function]}
       >
-        <campoTexto
+        <combobox
           divClasse="input-field col s6"
           id="vitima-genero"
-          inputClasse="validate"
-          label="Gênero (máximo de 15 caracteres)"
-          maxLen={15}
+          itens={
+            Array [
+              "Feminino",
+              "Masculino",
+            ]
+          }
+          label="Gênero"
           onChange={[Function]}
-          placeholder="Ex.: Feminino, Masculino, Não Binário..."
-          type="text"
+          valorPadrao="Selecione seu gênero"
         >
           <div
             className="input-field col s6"
           >
-            <input
-              className="validate"
+            <select
               id="vitima-genero"
-              maxLength={15}
               onChange={[Function]}
-              placeholder="Ex.: Feminino, Masculino, Não Binário..."
-              type="text"
-            />
+            >
+              <option
+                value=""
+              >
+                Selecione seu gênero
+              </option>
+              <option
+                key="Feminino"
+                value="Feminino"
+              >
+                 
+                Feminino
+                 
+              </option>
+              <option
+                key="Masculino"
+                value="Masculino"
+              >
+                 
+                Masculino
+                 
+              </option>
+            </select>
             <label
-              className="active"
               htmlFor="vitima-genero"
             >
-              Gênero (máximo de 15 caracteres)
+              Gênero
             </label>
           </div>
-        </campoTexto>
+        </combobox>
       </genero>
       <Data
         divClasse="input-field col s6"
@@ -476,9 +496,9 @@ exports[`DenuncianteForm deve seguir a estrutura definida  1`] = `
               "Parda",
             ]
           }
-          label="Selecione a Raça:"
+          label="Selecione sua raça / cor"
           onChange={[Function]}
-          valorPadrao="Selecione a Raça:"
+          valorPadrao="Selecione sua raça / cor"
         >
           <div
             className="input-field col s6"
@@ -490,7 +510,7 @@ exports[`DenuncianteForm deve seguir a estrutura definida  1`] = `
               <option
                 value=""
               >
-                Selecione a Raça:
+                Selecione sua raça / cor
               </option>
               <option
                 key="Preta"
@@ -512,7 +532,7 @@ exports[`DenuncianteForm deve seguir a estrutura definida  1`] = `
             <label
               htmlFor="raca"
             >
-              Selecione a Raça:
+              Selecione sua raça / cor
             </label>
           </div>
         </combobox>
