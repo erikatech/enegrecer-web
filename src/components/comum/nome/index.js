@@ -8,7 +8,7 @@ const nome = ({ id, onChange }) => (<CampoTexto
   maxLen={40}
   placeholder={''}
   type={'text'}
-  divClasse={'input-field col s12'}
+  divClasse={'input-field col s6'}
   onChange={onChange}
 />);
 
