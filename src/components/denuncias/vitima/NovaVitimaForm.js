@@ -4,13 +4,11 @@ import CheckBox from '../../comum/checkbox';
 import CampoTexto from '../../comum/campoTexto';
 import { cortarPalavra } from '../../../utils/helpers';
 import * as ConstantesCSS from '../ConstantesCss';
-import ComboEstado from '../../comum/comboboxEstado';
 import * as Tela from '../../../utils/materializeCSS';
 import Nome from '../../comum/nome';
 import Genero from '../../comum/genero';
 import Telefone from '../../comum/telefone';
 import ComboboxRaca from './../../comum/comboboxRaca';
-import Caracteristica from '../../comum/caracteristica';
 import Data from '../../comum/data';
 
 export default class NovaVitimaForm extends Component {
