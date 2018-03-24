@@ -1,0 +1,523 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DenuncianteForm deve seguir a estrutura definida  1`] = `
+<DenuncianteForm
+  handleChange={[Function]}
+>
+  <div>
+    <br />
+    <h4>
+      Você poderia nos passar algumas informações suas?
+    </h4>
+    <br />
+    <p>
+       Não se preocupe sua identidade será mantida em sigilo. Essas informações são importantes para futuramente darmos um retorno das medidas que estão sendo tomadas contra esse agressor. 
+    </p>
+    <div
+      className="row"
+    >
+      <nome
+        id="nome-vitima"
+        onChange={[Function]}
+      >
+        <campoTexto
+          divClasse="input-field col s6"
+          id="nome-vitima"
+          inputClasse=""
+          label="Nome (máximo de 40 caracteres)"
+          maxLen={40}
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <input
+              className=""
+              id="nome-vitima"
+              maxLength={40}
+              onChange={[Function]}
+              type="text"
+            />
+            <label
+              className="active"
+              htmlFor="nome-vitima"
+            >
+              Nome (máximo de 40 caracteres)
+            </label>
+          </div>
+        </campoTexto>
+      </nome>
+      <campoTexto
+        divClasse="input-field col s6"
+        id="email-vitima"
+        inputClasse=""
+        label="Email"
+        maxLen={40}
+        onChange={[Function]}
+        placeholder=""
+        type="text"
+      >
+        <div
+          className="input-field col s6"
+        >
+          <input
+            className=""
+            id="email-vitima"
+            maxLength={40}
+            onChange={[Function]}
+            type="text"
+          />
+          <label
+            className="active"
+            htmlFor="email-vitima"
+          >
+            Email
+          </label>
+        </div>
+      </campoTexto>
+    </div>
+    <div
+      className="row"
+    >
+      <telefone
+        handleChange={[Function]}
+        id="telefone"
+        label="Telefone"
+        value=""
+      >
+        <div
+          className="input-field col s6"
+        >
+          <InputElement
+            id="telefone"
+            mask="(99) 99999-9999"
+            maskChar=" "
+            name="telefone"
+            onChange={[Function]}
+            type="text"
+            value=""
+          >
+            <input
+              id="telefone"
+              name="telefone"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onPaste={[Function]}
+              type="text"
+              value=""
+            />
+          </InputElement>
+          <label
+            htmlFor="telefone"
+          >
+            Telefone
+          </label>
+        </div>
+      </telefone>
+      <comboEstado
+        classes="col s6"
+        handleChange={[Function]}
+        id="estadoVitima"
+        onChange={[Function]}
+      >
+        <combobox
+          divClasse="input-field col s6"
+          id="estadoVitima"
+          itens={
+            Array [
+              "AC",
+              "AL",
+              "AM",
+              "AP",
+              "BA",
+              "CE",
+              "DF",
+              "ES",
+              "GO",
+              "MA",
+              "MG",
+              "MS",
+              "MT",
+              "PA",
+              "PB",
+              "PE",
+              "PI",
+              "RN",
+              "PR",
+              "RJ",
+              "RR",
+              "SC",
+              "SE",
+              "SP",
+              "TO",
+            ]
+          }
+          label="Selecione o Estado:"
+          onChange={[Function]}
+          valorPadrao="Selecione"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <select
+              id="estadoVitima"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                Selecione
+              </option>
+              <option
+                key="AC"
+                value="AC"
+              >
+                 
+                AC
+                 
+              </option>
+              <option
+                key="AL"
+                value="AL"
+              >
+                 
+                AL
+                 
+              </option>
+              <option
+                key="AM"
+                value="AM"
+              >
+                 
+                AM
+                 
+              </option>
+              <option
+                key="AP"
+                value="AP"
+              >
+                 
+                AP
+                 
+              </option>
+              <option
+                key="BA"
+                value="BA"
+              >
+                 
+                BA
+                 
+              </option>
+              <option
+                key="CE"
+                value="CE"
+              >
+                 
+                CE
+                 
+              </option>
+              <option
+                key="DF"
+                value="DF"
+              >
+                 
+                DF
+                 
+              </option>
+              <option
+                key="ES"
+                value="ES"
+              >
+                 
+                ES
+                 
+              </option>
+              <option
+                key="GO"
+                value="GO"
+              >
+                 
+                GO
+                 
+              </option>
+              <option
+                key="MA"
+                value="MA"
+              >
+                 
+                MA
+                 
+              </option>
+              <option
+                key="MG"
+                value="MG"
+              >
+                 
+                MG
+                 
+              </option>
+              <option
+                key="MS"
+                value="MS"
+              >
+                 
+                MS
+                 
+              </option>
+              <option
+                key="MT"
+                value="MT"
+              >
+                 
+                MT
+                 
+              </option>
+              <option
+                key="PA"
+                value="PA"
+              >
+                 
+                PA
+                 
+              </option>
+              <option
+                key="PB"
+                value="PB"
+              >
+                 
+                PB
+                 
+              </option>
+              <option
+                key="PE"
+                value="PE"
+              >
+                 
+                PE
+                 
+              </option>
+              <option
+                key="PI"
+                value="PI"
+              >
+                 
+                PI
+                 
+              </option>
+              <option
+                key="RN"
+                value="RN"
+              >
+                 
+                RN
+                 
+              </option>
+              <option
+                key="PR"
+                value="PR"
+              >
+                 
+                PR
+                 
+              </option>
+              <option
+                key="RJ"
+                value="RJ"
+              >
+                 
+                RJ
+                 
+              </option>
+              <option
+                key="RR"
+                value="RR"
+              >
+                 
+                RR
+                 
+              </option>
+              <option
+                key="SC"
+                value="SC"
+              >
+                 
+                SC
+                 
+              </option>
+              <option
+                key="SE"
+                value="SE"
+              >
+                 
+                SE
+                 
+              </option>
+              <option
+                key="SP"
+                value="SP"
+              >
+                 
+                SP
+                 
+              </option>
+              <option
+                key="TO"
+                value="TO"
+              >
+                 
+                TO
+                 
+              </option>
+            </select>
+            <label
+              htmlFor="estadoVitima"
+            >
+              Selecione o Estado:
+            </label>
+          </div>
+        </combobox>
+      </comboEstado>
+    </div>
+    <div
+      className="row"
+    >
+      <genero
+        divClasse="input-field col s6"
+        id="vitima-genero"
+        onChange={[Function]}
+      >
+        <campoTexto
+          divClasse="input-field col s6"
+          id="vitima-genero"
+          inputClasse="validate"
+          label="Gênero (máximo de 15 caracteres)"
+          maxLen={15}
+          onChange={[Function]}
+          placeholder="Ex.: Feminino, Masculino, Não Binário..."
+          type="text"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <input
+              className="validate"
+              id="vitima-genero"
+              maxLength={15}
+              onChange={[Function]}
+              placeholder="Ex.: Feminino, Masculino, Não Binário..."
+              type="text"
+            />
+            <label
+              className="active"
+              htmlFor="vitima-genero"
+            >
+              Gênero (máximo de 15 caracteres)
+            </label>
+          </div>
+        </campoTexto>
+      </genero>
+      <Data
+        divClasse="input-field col s6"
+        id="dataNascimento"
+        label="Data de Nascimento"
+        onChange={[Function]}
+      >
+        <campoTexto
+          divClasse="input-field col s6"
+          id="dataNascimento"
+          inputClasse="datepicker"
+          label="Data de Nascimento"
+          maxLen={0}
+          onChange={[Function]}
+          placeholder="Data"
+          type="date"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <input
+              className="datepicker"
+              id="dataNascimento"
+              maxLength={0}
+              onChange={[Function]}
+              placeholder="Data"
+              type="date"
+            />
+            <label
+              className="active"
+              htmlFor="dataNascimento"
+            >
+              Data de Nascimento
+            </label>
+          </div>
+        </campoTexto>
+      </Data>
+    </div>
+    <div
+      className="row"
+    >
+      <comboRaca
+        classes="input-field col s6"
+        id="raca"
+        onChange={[Function]}
+        somenteRacasVitima={true}
+      >
+        <combobox
+          divClasse="input-field col s6"
+          id="raca"
+          itens={
+            Array [
+              "Preta",
+              "Parda",
+            ]
+          }
+          label="Selecione a Raça:"
+          onChange={[Function]}
+          valorPadrao="Selecione a Raça:"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <select
+              id="raca"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                Selecione a Raça:
+              </option>
+              <option
+                key="Preta"
+                value="Preta"
+              >
+                 
+                Preta
+                 
+              </option>
+              <option
+                key="Parda"
+                value="Parda"
+              >
+                 
+                Parda
+                 
+              </option>
+            </select>
+            <label
+              htmlFor="raca"
+            >
+              Selecione a Raça:
+            </label>
+          </div>
+        </combobox>
+      </comboRaca>
+    </div>
+  </div>
+</DenuncianteForm>
+`;
