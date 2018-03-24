@@ -57,8 +57,10 @@ export default class NovaVitimaForm extends Component {
       <div>
         <h2>Me conte um pouco sobre a vítima.</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl mi, egestas ac ipsum sit amet,
-          blandit posuere metus. Donec imperdiet ut mi sed posuere. Pellentesque et varius sapien.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Nunc nisl mi, egestas ac ipsum sit amet,
+          blandit posuere metus. Donec imperdiet ut
+          mi sed posuere. Pellentesque et varius sapien.
         </p>
         <CheckBox id={'vitima'} label={'Marque se você for a vítima'} onClick={e => this.handleChange(e.target.checked, 'conhecoAVitima')} />
 
