@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import CheckBox from '../../comum/checkbox';
 import CampoTexto from '../../comum/campoTexto';
 import { cortarPalavra } from '../../../utils/helpers';
 import * as ConstantesCSS from '../ConstantesCss';
@@ -10,10 +9,9 @@ import Nome from '../../comum/nome';
 import Genero from '../../comum/genero';
 import Telefone from '../../comum/telefone';
 import ComboboxRaca from './../../comum/comboboxRaca';
-import Caracteristica from '../../comum/caracteristica';
 import Data from '../../comum/data';
 
-export default class NovaVitimaForm extends Component {
+export default class DenuncianteForm extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -57,53 +55,58 @@ export default class NovaVitimaForm extends Component {
   render() {
     return (
       <div>
-        <h2>Me conte um pouco sobre a vítima.</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl mi, egestas ac ipsum sit amet,
-          blandit posuere metus. Donec imperdiet ut mi sed posuere. Pellentesque et varius sapien.
-        </p>
-        <CheckBox id={'vitima'} label={'Marque se você for a vítima'} onClick={e => this.handleChange(e.target.checked, 'conhecoAVitima')} />
-
+        <br />
+        <h4>Você poderia nos passar algumas informações suas?</h4>
+        <br />
+        <p> Não se preocupe sua identidade será mantida em sigilo.
+           Essas informações são importantes para
+          futuramente darmos um retorno das medidas que estão sendo tomadas
+          contra esse agressor. </p>
         <div className="row">
-          <Nome
-            id={'nome-vitima'}
-            onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'nome')}
-          />
-          <Data
-            id={'data-nascimento-vitima'}
-            label={'Data de Nascimento'}
-            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
-            onChange={e => this.handleChange(e.target.value, 'dataNascimento')}
-          />
+          <Nome id={'nome-vitima'} onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'nome')} />
 
+          <CampoTexto
+            id={'email-vitima'}
+            label={'Email'}
+            maxLen={40}
+            type={'text'}
+            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
+            onChange={e => this.handleChange(cortarPalavra(e.target.value, 40), 'email')}
+          />
         </div>
 
         <div className="row">
+
           <Telefone
-            id="telefone-vitima"
+            id="telefone"
             value={this.state.telefone}
             handleChange={this.handleChange}
             label={'Telefone'}
           />
-          <CampoTexto
-            id={'cidade-vitima'}
-            label={'Cidade'}
-            maxLen={40}
-            placeholder={''}
-            type={'text'}
-            divClasse={'input-field col s6'}
-          />
+
+          <ComboEstado id={'estadoVitima'} handleChange={this.handleChange} classes={'col s6'} />
+
         </div>
 
         <div className="row">
           <Genero
-            id={'genero-vitima'}
+            id={'vitima-genero'}
             divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
             onChange={e => this.handleChange(cortarPalavra(e.target.value, 15), 'genero')}
           />
 
+          <Data
+            id={'dataNascimento'}
+            label={'Data de Nascimento'}
+            divClasse={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
+            onChange={e => this.handleChange(e.target.value, 'dataNascimento')}
+          />
+        </div>
+
+        <div className="row">
+
           <ComboboxRaca
-            id={'raca-vitima'}
+            id={'raca'}
             classes={`${ConstantesCSS.CLASSES_DIV_INPUT} col s6`}
             somenteRacasVitima
             onChange={this.handleChange}
@@ -113,8 +116,8 @@ export default class NovaVitimaForm extends Component {
   }
 }
 
-NovaVitimaForm.defaultProps = { handleChange: () => {} };
+DenuncianteForm.defaultProps = { handleChange: () => {} };
 
-NovaVitimaForm.propTypes = {
+DenuncianteForm.propTypes = {
   handleChange: PropTypes.func,
 };
