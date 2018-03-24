@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AgressorForm deve seguir a estrutura definida  1`] = `
+<AgressorForm>
+  <div>
+    <h3>
+      Você se sente confortável em dividir conosco informações sobre o agressor?
+    </h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl mi, egestas ac ipsum sit amet, blandit posuere metus. Donec imperdiet ut mi sed posuere. Pellentesque et varius sapien.
+    </p>
+    <div
+      className="row"
+    >
+      <nome
+        id="nome-agressor"
+        onChange={[Function]}
+      >
+        <campoTexto
+          divClasse="input-field col s6"
+          id="nome-agressor"
+          inputClasse=""
+          label="Nome (máximo de 40 caracteres)"
+          maxLen={40}
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <input
+              className=""
+              id="nome-agressor"
+              maxLength={40}
+              onChange={[Function]}
+              type="text"
+            />
+            <label
+              className="active"
+              htmlFor="nome-agressor"
+            >
+              Nome (máximo de 40 caracteres)
+            </label>
+          </div>
+        </campoTexto>
+      </nome>
+      <campoTexto
+        divClasse="input-field col s6"
+        id="cidade-agressor"
+        inputClasse=""
+        label="Cidade"
+        maxLen={40}
+        onChange={[Function]}
+        placeholder=""
+        type="text"
+      >
+        <div
+          className="input-field col s6"
+        >
+          <input
+            className=""
+            id="cidade-agressor"
+            maxLength={40}
+            onChange={[Function]}
+            type="text"
+          />
+          <label
+            className="active"
+            htmlFor="cidade-agressor"
+          >
+            Cidade
+          </label>
+        </div>
+      </campoTexto>
+    </div>
+    <div
+      className="row"
+    >
+      <genero
+        divClasse="input-field col s6"
+        id="genero-agressor"
+        onChange={[Function]}
+      >
+        <combobox
+          divClasse="input-field col s6"
+          id="genero-agressor"
+          itens={
+            Array [
+              "Feminino",
+              "Masculino",
+            ]
+          }
+          label="Gênero"
+          onChange={[Function]}
+          valorPadrao="Selecione seu gênero"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <select
+              id="genero-agressor"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                Selecione seu gênero
+              </option>
+              <option
+                key="Feminino"
+                value="Feminino"
+              >
+                 
+                Feminino
+                 
+              </option>
+              <option
+                key="Masculino"
+                value="Masculino"
+              >
+                 
+                Masculino
+                 
+              </option>
+            </select>
+            <label
+              htmlFor="genero-agressor"
+            >
+              Gênero
+            </label>
+          </div>
+        </combobox>
+      </genero>
+      <Data
+        divClasse="input-field col s6"
+        id="data-nascimento-agressor"
+        label="Data de Nascimento"
+        onChange={[Function]}
+      >
+        <campoTexto
+          divClasse="input-field col s6"
+          id="data-nascimento-agressor"
+          inputClasse="datepicker"
+          label="Data de Nascimento"
+          maxLen={0}
+          onChange={[Function]}
+          placeholder="Data"
+          type="date"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <input
+              className="datepicker"
+              id="data-nascimento-agressor"
+              maxLength={0}
+              onChange={[Function]}
+              placeholder="Data"
+              type="date"
+            />
+            <label
+              className="active"
+              htmlFor="data-nascimento-agressor"
+            >
+              Data de Nascimento
+            </label>
+          </div>
+        </campoTexto>
+      </Data>
+    </div>
+    <div
+      className="row"
+    >
+      <comboRaca
+        id="raca-agressor"
+        onChange={[Function]}
+        somenteRacasVitima={false}
+      >
+        <combobox
+          divClasse="input-field col s6"
+          id="raca-agressor"
+          itens={
+            Array [
+              "Amarela",
+              "Branco",
+              "Índigena",
+              "Parda",
+              "Preta",
+            ]
+          }
+          label="Selecione sua raça / cor"
+          onChange={[Function]}
+          valorPadrao="Selecione sua raça / cor"
+        >
+          <div
+            className="input-field col s6"
+          >
+            <select
+              id="raca-agressor"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                Selecione sua raça / cor
+              </option>
+              <option
+                key="Amarela"
+                value="Amarela"
+              >
+                 
+                Amarela
+                 
+              </option>
+              <option
+                key="Branco"
+                value="Branco"
+              >
+                 
+                Branco
+                 
+              </option>
+              <option
+                key="Índigena"
+                value="Índigena"
+              >
+                 
+                Índigena
+                 
+              </option>
+              <option
+                key="Parda"
+                value="Parda"
+              >
+                 
+                Parda
+                 
+              </option>
+              <option
+                key="Preta"
+                value="Preta"
+              >
+                 
+                Preta
+                 
+              </option>
+            </select>
+            <label
+              htmlFor="raca-agressor"
+            >
+              Selecione sua raça / cor
+            </label>
+          </div>
+        </combobox>
+      </comboRaca>
+    </div>
+    <div
+      className="row"
+    >
+      <campoTexto
+        divClasse="input-field col s12"
+        id="descricao-agressor"
+        inputClasse=""
+        label="Descrição do agressor"
+        maxLen={100}
+        onChange={[Function]}
+        placeholder=""
+        type="text"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className=""
+            id="descricao-agressor"
+            maxLength={100}
+            onChange={[Function]}
+            type="text"
+          />
+          <label
+            className="active"
+            htmlFor="descricao-agressor"
+          >
+            Descrição do agressor
+          </label>
+        </div>
+      </campoTexto>
+    </div>
+  </div>
+</AgressorForm>
+`;
