@@ -1,28 +1,40 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Popup from 'reactjs-popup';
 import Combobox from '../comum/combobox';
 import './painel-moderador.css';
 import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
-
-function cliqueDetalhesDenuncia(denuncia) {
-  return () => {
-    denuncia.props.dispatch(detalhesDenuncia({ denuncia: denuncia.props.denuncia }));
-  };
-}
+import { classificarDenunciaRequisicao } from '../../actions/classificarDenunciaRequisicao';
 
 class DenunciaRow extends Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { expanded: true, classificacaoDenuncia: '', open: false };
   }
 
   mudaEstado = () => {
     this.setState({ expanded: !this.state.expanded });
   }
 
+  cliqueDetalhesDenuncia = denuncia =>
+    denuncia.props.dispatch(detalhesDenuncia({ denuncia: denuncia.props.denuncia }));
+
+  aceitarDenuncia = (denuncia) => {
+    // this.setState({idDenuncia: })
+    console.log('manooo', denuncia);
+
+    console.log(this.state.classificacaoDenuncia);
+  }
+
+  confirmaDenuncia = () => {
+    this.props.classificarDenunciaRequisicao();
+  };
+
   render() {
-    const { expanded } = this.state;
+    const { expanded, classificacaoDenuncia, open } = this.state;
     const { denuncia } = this.props;
     const { agressao } = denuncia;
     const { denunciante } = denuncia;
@@ -90,6 +102,11 @@ class DenunciaRow extends Component {
             <tr className="row-acoes-denuncia">
               <td colSpan="5">
                 <Combobox
+                  onChange={selectedValue =>
+                    this.setState({ classificacaoDenuncia: selectedValue })}
+                  value={classificacaoDenuncia}
+                  label="Classifique a denúncia"
+                  valorPadrao="Classifique a denúncia"
                   itens={['Injúria Racial', 'Racismo']}
                 />
               </td>
@@ -98,7 +115,50 @@ class DenunciaRow extends Component {
               </td>
 
               <td colSpan="2" style={{ textAlign: 'center' }}>
-                <input type="button" className="aceitar-denuncia" value="aceitar denúncia" onClick={this.aceitarDenuncia} />
+                <input
+                  // disabled={classificacaoDenuncia === ''}
+                  type="button"
+                  className="aceitar-denuncia"
+                  value="aceitar denúncia"
+                  onClick={() => this.aceitarDenuncia(denuncia)}
+                />
+
+                <Popup
+                  trigger={<input
+                    // disabled={classificacaoDenuncia === ''}
+                    type="button"
+                    className="aceitar-denuncia"
+                    value="aceitar denúncia"
+                    onClick={() => this.aceitarDenuncia(denuncia)}
+                  />}
+                  modal
+                  closeOnDocumentClick={false}
+                >
+                  {close => (
+                    <div className="aceitar-denuncia-modal">
+                      <h3>Gostaria de aceitar a denúncia?</h3>
+                      <p>
+                        Ao aceitar a denúncia ela fará parte das estastísticas.
+                      </p>
+                      <div className="container-botoes">
+                        <input
+                          type="button"
+                          className="confirm"
+                          value="sim"
+                          onClick={this.aceitarDenuncia}
+                        />
+
+                        <input
+                          type="button"
+                          className="cancel"
+                          value="não"
+                          onClick={close}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                </Popup>
               </td>
             </tr>
 
@@ -124,4 +184,8 @@ DenunciaRow.propTypes = {
   }).isRequired
 };
 
-export default DenunciaRow;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  classificarDenunciaRequisicao,
+}, dispatch);
+
+export default connect(null, mapDispatchToProps)(DenunciaRow);
