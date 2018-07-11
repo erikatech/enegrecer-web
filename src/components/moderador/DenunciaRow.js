@@ -7,12 +7,17 @@ import Popup from 'reactjs-popup';
 import Combobox from '../comum/combobox';
 import './painel-moderador.css';
 import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
-import { classificarDenunciaRequisicao } from '../../actions/classificarDenunciaRequisicao';
+import { classificarDenunciaRequisicao } from '../../actions/classificarDenunciaActions';
 
 class DenunciaRow extends Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: true, classificacaoDenuncia: '', open: false };
+    this.state = {
+      expanded: true,
+      classificacaoDenuncia: '',
+      open: false,
+      idDenunciaSelecionada: ''
+    };
   }
 
   mudaEstado = () => {
@@ -22,15 +27,14 @@ class DenunciaRow extends Component {
   cliqueDetalhesDenuncia = denuncia =>
     denuncia.props.dispatch(detalhesDenuncia({ denuncia: denuncia.props.denuncia }));
 
-  aceitarDenuncia = (denuncia) => {
-    // this.setState({idDenuncia: })
-    console.log('manooo', denuncia);
-
-    console.log(this.state.classificacaoDenuncia);
+  aceitarDenuncia = (idDenunciaSelecionada) => {
+    this.setState({ idDenunciaSelecionada });
+    this.setState({ open: true });
   }
 
   confirmaDenuncia = () => {
-    this.props.classificarDenunciaRequisicao();
+    console.log(this.state.idDenunciaSelecionada);
+    // this.props.classificarDenunciaRequisicao();
   };
 
   render() {
@@ -49,7 +53,13 @@ class DenunciaRow extends Component {
           <td>{agressao.cidade}</td>
           <td>{agressao.bairro}</td>
           <td>
-            <Link to={`/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes" onClick={cliqueDetalhesDenuncia(this)}> mais detalhes </Link>
+            <Link
+              to={`/visualizar-denuncia/${denuncia.id}`}
+              className="mais-detalhes"
+              onClick={() => this.cliqueDetalhesDenuncia(this)}
+            >
+              mais detalhes
+            </Link>
           </td>
           <td width="50px">
             <input
@@ -120,48 +130,38 @@ class DenunciaRow extends Component {
                   type="button"
                   className="aceitar-denuncia"
                   value="aceitar denúncia"
-                  onClick={() => this.aceitarDenuncia(denuncia)}
+                  onClick={() => this.aceitarDenuncia(denuncia.id)}
                 />
 
                 <Popup
-                  trigger={<input
-                    // disabled={classificacaoDenuncia === ''}
-                    type="button"
-                    className="aceitar-denuncia"
-                    value="aceitar denúncia"
-                    onClick={() => this.aceitarDenuncia(denuncia)}
-                  />}
+                  open={open}
                   modal
                   closeOnDocumentClick={false}
                 >
-                  {close => (
-                    <div className="aceitar-denuncia-modal">
-                      <h3>Gostaria de aceitar a denúncia?</h3>
-                      <p>
-                        Ao aceitar a denúncia ela fará parte das estastísticas.
-                      </p>
-                      <div className="container-botoes">
-                        <input
-                          type="button"
-                          className="confirm"
-                          value="sim"
-                          onClick={this.aceitarDenuncia}
-                        />
+                  <div className="aceitar-denuncia-modal">
+                    <h3>Gostaria de aceitar a denúncia?</h3>
+                    <p>
+                      Ao aceitar a denúncia ela fará parte das estastísticas.
+                    </p>
+                    <div className="container-botoes">
+                      <input
+                        type="button"
+                        className="confirm"
+                        value="sim"
+                        onClick={this.confirmaDenuncia}
+                      />
 
-                        <input
-                          type="button"
-                          className="cancel"
-                          value="não"
-                          onClick={close}
-                        />
-                      </div>
+                      <input
+                        type="button"
+                        className="cancel"
+                        value="não"
+                        onClick={() => this.setState({ open: false })}
+                      />
                     </div>
-                  )}
-
+                  </div>
                 </Popup>
               </td>
             </tr>
-
           </Fragment>
         )}
       </Fragment>
@@ -181,7 +181,8 @@ DenunciaRow.propTypes = {
     vitima: PropTypes.shape({
       genero: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  classificarDenunciaRequisicao: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
