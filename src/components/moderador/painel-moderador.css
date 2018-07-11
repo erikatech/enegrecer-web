@@ -126,6 +126,15 @@
 .row-acoes-denuncia .aceitar-denuncia {
   height: 40px;
   border-radius: 3px;
+  width: 153px;
+  border-radius: 3px;
+  background-color: #20a14f;
+  font-size: 16px;
+  color: #fff;
+}
+
+
+.row-acoes-denuncia .aceitar-denuncia:disabled {
   background-color: #dfdfdf;
 }
 
@@ -141,6 +150,60 @@
   cursor: pointer;
   border: none;
 }
+
+.row-acoes-denuncia .popup-content {
+  width: 40% !important;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal {
+  height: 188px;
+  border-radius: 2px;
+  border: solid 0.5px transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal h3 {
+  font-size: 20px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.87);
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+.row-acoes-denuncia .aceitar-denuncia p {
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 16px;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal .container-botoes {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-self: flex-end;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal .container-botoes input {
+  width: 75px;
+  height: 36px;
+  border-radius: 2px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal .container-botoes .confirm {
+  color: #2da24a;
+  margin-right: 10px;
+}
+
+.row-acoes-denuncia .aceitar-denuncia-modal .container-botoes .cancel {
+  color: #ff0336;
+}
+
 
 .mais-informacoes-denuncia-container {
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.15);
