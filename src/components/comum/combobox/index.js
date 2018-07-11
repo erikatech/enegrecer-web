@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 
 const combobox = ({
-  divClasse, id, state, valorPadrao, itens, label, onChange
+  divClasse, id, state, valorPadrao, itens, label, onChange, value
 }) => (
   state ? (
     <div className={divClasse}>
@@ -16,8 +16,10 @@ const combobox = ({
       </Field>
     </div>
   ) : (
-    <div>
-      <select name="select">
+    <div className={divClasse}>
+      <label htmlFor={id}>{label}</label>
+      <select name="select" value={value} onChange={e => onChange(e.target.value)}>
+        <option value="">{valorPadrao}</option>
         {itens.map(item => (
           <option key={item} value={item}>{item}</option>
         ))}
